@@ -1,0 +1,24 @@
+<div class="update">
+  <div class="heading">
+    <div class="tag">
+      <div class="day">
+        <%= update.day %>
+      </div>
+      <div class="month">
+        <%= update.month %>
+      </div>
+    </div>
+    <div class="description">
+      <b><%= update.author %></b> <%= update.type_as_string %>
+    </div>
+    <div class="title">
+      <%= update.article.title %>
+    </div>
+  </div>
+  <div class="content">
+    <%= raw update.update_snippet %>
+  </div>
+  <div class="footer">
+    &rarr; read more
+  </div>
+</div>

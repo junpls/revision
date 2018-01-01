@@ -45,3 +45,16 @@ bower.json
 
 # Ignore node_modules
 node_modules/
+
+# emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# misc
+/drafts

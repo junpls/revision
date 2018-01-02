@@ -8,15 +8,17 @@
         <%= update.month %>
       </div>
     </div>
-    <div class="description">
-      <b><%= update.author %></b> <%= update.type_as_string %>
-    </div>
-    <div class="title">
-      <%= update.article.title %>
+    <div class="content">
+      <div class="description">
+        <b><%= update.author %></b> <%= update.type_as_string %>
+      </div>
+      <div class="title">
+        <%= update.article.title %>
+      </div>
     </div>
   </div>
   <div class="content">
-    <%= raw update.update_snippet %>
+    <%= raw update.diff_snippet %>
   </div>
   <div class="footer">
     &rarr; read more

@@ -1,6 +1,6 @@
 class Article
-  def initialize
-    @title = "Hello World"
+  def initialize(title)
+    @title = title
   end
 
   def title

@@ -1,3 +1,37 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.update {
+    border-style: solid;
+    margin: 10px 10px 10px 10px;
+    padding: 5px;
+}
+
+.update .heading {
+    height: 50px;
+}
+
+.update .heading .content {
+    padding: 5px 70px;
+}
+
+.update .content .title {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.update .tag {
+    border-style: solid;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    text-align: center;
+}
+
+.update .insertion {
+    background-color: yellow;
+}
+
+.update .footer {
+    text-align: right;
+}

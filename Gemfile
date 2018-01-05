@@ -35,6 +35,9 @@ gem 'git', '~> 1.3'
 # markdown parser
 gem 'redcarpet', '~> 3.4'
 
+# js plugins
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

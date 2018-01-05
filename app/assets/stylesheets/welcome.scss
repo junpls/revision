@@ -1,14 +1,28 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+header {
+    text-align: center;
+}
+
+
+@media only screen and (min-width: 800px) {
+    .articles {
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .update {
-    border-style: solid;
-    margin: 10px 10px 10px 10px;
+    margin: 30px 10px 30px 60px;
     padding: 5px;
 }
 
 .update .heading {
-    height: 50px;
+    height: 55px;
+    margin-left: -70px;
 }
 
 .update .heading .content {
@@ -35,3 +49,32 @@
 .update .footer {
     text-align: right;
 }
+
+.update .preview {
+    margin: -50px 0px -50px 0px;
+}
+
+.update .top_frame {
+    position:relative;
+    top:0px;
+    height:50px;
+    width:100%;
+}
+
+.update .top_fade {
+    background:-webkit-linear-gradient(rgba( 255, 255, 255, 1), rgba(255, 255, 255, 0) );
+    background:linear-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) );
+}
+
+.update .bottom_frame {
+    position:relative;
+    bottom:0px;
+    height:50px;
+    width:100%;
+}
+
+.update .bottom_fade {
+    background:-webkit-linear-gradient(rgba( 255, 255, 255, 0), rgba(255, 255, 255, 1) );
+    background:linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) );
+}
+

@@ -3,6 +3,7 @@ require 'redcarpet'
 
 class WelcomeController < ApplicationController
   @@repo_path = './../blog2'
+  @@text_padding_lines = 1
   
   def index
     @updates = Array.new
@@ -36,13 +37,24 @@ class WelcomeController < ApplicationController
           end
         end
 
+        pre = pre.split("\n").last(@@text_padding_lines).join("\n")
+        suf = suf.split("\n").first(@@text_padding_lines).join("\n")
+        
         pre_patch = markdown.render(pre)
         new_patch = markdown.render(new)
         suf_patch = markdown.render(suf)
 
-        patch = pre_patch + '<div class="insertion">' + new_patch + '</div>' + suf_patch
+        if pre == "" && suf == ""
+          patch = new_patch
+          patch_type = :publish
+        else
+          patch = '<div class="pre_insertion">'  + pre_patch + '</div>' +
+                  '<div class="insertion">'      + new_patch + '</div>' +
+                  '<div class="post_insertion">' + suf_patch + '</div>'
+          patch_type = :update
+        end
         
-        update = Update.new(c.committer_date, c.committer.name, :update, patch, title)
+        update = Update.new(c.committer_date, c.committer.name, patch_type, patch, title)
         @updates << update
        end
     end

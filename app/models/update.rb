@@ -25,7 +25,8 @@ class Update
     case @type
     when :update
       "updated"
-
+    when :publish
+      "published"
     end
   end
 

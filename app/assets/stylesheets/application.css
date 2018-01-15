@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+    font-family: "Average Regular";
+    src: url('Average-Regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "Fjalla One Regular";
+    src: url('FjallaOne-Regular.ttf') format("truetype");
+}
+
+body {
+    font-family: "Average Regular";
+}
+
+p {
+    font-size: large;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Fjalla One Regular";
+}

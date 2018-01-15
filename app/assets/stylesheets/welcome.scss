@@ -16,17 +16,18 @@ header {
 }
 
 .update {
-    margin: 30px 10px 30px 60px;
+    margin: 50px 10px 50px 60px;
     padding: 5px;
 }
 
 .update .heading {
     height: 55px;
     margin-left: -70px;
+    font-family: "Fjalla One Regular";
 }
 
 .update .heading .content {
-    padding: 5px 70px;
+    padding: 4px 70px;
 }
 
 .update .content .title {
@@ -43,7 +44,11 @@ header {
 }
 
 .update .insertion {
-    background-color: yellow;
+    border-style: dashed;
+    padding: 0px 10px;
+    margin: 0px -10px;
+    border-color: #484810;
+    background-color: #edff002e;
 }
 
 .update .footer {

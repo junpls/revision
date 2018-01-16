@@ -3,7 +3,8 @@ require 'redcarpet'
 
 class ReviRenderer < Redcarpet::Render::HTML
   def image(link, title, alt_text)
-    %(<div class="center"><img src="#{link}" alt="#{alt_text}"></img></div>)
+    caption = title.to_s.empty? ? "" : %(<div class="caption">#{title}</div>)
+    %(<div class="center"><img src="#{link}" alt="#{alt_text}"></img>#{caption}</div>)
   end
 
   def block_code(code, language)
@@ -14,6 +15,10 @@ end
 class WelcomeController < ApplicationController
   @@repo_path = './../blog2'
   @@text_padding_lines = 1
+
+  def prepare_images(patch, folder)
+    patch.gsub(/]\((.*.(?:jpg|jpeg|gif|png))\s"(.*)"\)/, '](/assets/'+folder+'\1 "\2")  '+"\n")
+  end
   
   def index
     @updates = Array.new
@@ -36,8 +41,6 @@ class WelcomeController < ApplicationController
         title = title.gsub("_"," ")
 
         folder = path.match(/b\/([^\/]*).*/).captures[0]
-        # Hack to delete image captions
-        patch = patch.gsub(/]\((.*.(?:jpg|jpeg|gif|png)).*\)/, '](/assets/'+folder+'\1)')
         
         pre, new, suf = "", "", ""
         foundpatch = false
@@ -60,6 +63,12 @@ class WelcomeController < ApplicationController
 
         pre = pre.split("\n").last(@@text_padding_lines).join("\n")
         suf = suf.split("\n").first(@@text_padding_lines).join("\n")
+
+        pre = prepare_images(pre, folder)
+        new = prepare_images(new, folder)
+        suf = prepare_images(suf, folder)
+        
+        puts new
         
         pre_patch = markdown.render(pre)
         new_patch = markdown.render(new)

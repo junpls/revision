@@ -41,6 +41,20 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Fjalla One Regular";
 }
 
+.center {
+    text-align: center;
+}
+
+.caption {
+    color: #afb7b7;
+    font-style: italic;
+    font-size: small;
+}
+
+.caption:before {
+    content: "Figure: ";
+}
+
 .center img {        
   display:block;
   margin-left:auto;

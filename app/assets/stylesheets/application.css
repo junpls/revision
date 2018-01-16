@@ -26,6 +26,7 @@
 
 body {
     font-family: "Average Regular";
+    color: #1b2b2a;
 }
 
 p {
@@ -34,4 +35,10 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Fjalla One Regular";
+}
+
+.center img {        
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
 }

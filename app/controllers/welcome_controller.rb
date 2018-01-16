@@ -1,6 +1,16 @@
 require 'git'
 require 'redcarpet'
 
+class ReviRenderer < Redcarpet::Render::HTML
+  def image(link, title, alt_text)
+    %(<div class="center"><img src="#{link}" alt="#{alt_text}"></img></div>)
+  end
+
+  def block_code(code, language)
+    %(<div><code>#{code}</code></div>)
+  end
+end
+
 class WelcomeController < ApplicationController
   @@repo_path = './../blog2'
   @@text_padding_lines = 1
@@ -9,19 +19,26 @@ class WelcomeController < ApplicationController
     @updates = Array.new
     
     git = Git.open(@@repo_path)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, fenced_code_blocks: true, prettify: true)
+    markdown = Redcarpet::Markdown.new(ReviRenderer, fenced_code_blocks: true, prettify: true)
 
     git.log.each do |c|
       if c.message.include? '--hide'
         next
       end
       c.diff_parent.each do |d|
-        title, patch = d.patch.split(/@@.*@@/)
-        if not title.match(/.*\.md/)
+        log, patch = d.patch.split(/@@.*@@/)
+        if not log.match(/.*\.md/)
           next
         end
-        title = title.match(/\/([^\/]*)\.md/).captures[0]
+        
+        path = log.match(/.*(b\/.*)\.md/).captures[0]
+        title = path.match(/.*\/([^\/]*)/).captures[0]
         title = title.gsub("_"," ")
+
+        folder = path.match(/b\/([^\/]*).*/).captures[0]
+        # Hack to delete image captions
+        patch = patch.gsub(/]\((.*.(?:jpg|jpeg|gif|png)).*\)/, '](/assets/'+folder+'\1)')
+        
         pre, new, suf = "", "", ""
         foundpatch = false
         patch.each_line do |line|

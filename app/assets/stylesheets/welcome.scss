@@ -6,15 +6,6 @@ header {
     text-align: center;
 }
 
-
-@media only screen and (min-width: 800px) {
-    .articles {
-        width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
 .update {
     margin: 50px 10px 50px 60px;
     padding: 5px;
@@ -83,3 +74,20 @@ header {
     background:linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) );
 }
 
+@media only screen and (min-width: 800px) {
+    .articles {
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .update .heading {
+        margin-left: 0px
+    }
+
+    .update {
+        margin-left: 10px;
+    }
+}

@@ -54,6 +54,10 @@ class WelcomeController < ApplicationController
           end
         end
 
+        if new == ""
+          next
+        end
+
         pre = pre.split("\n").last(@@text_padding_lines).join("\n")
         suf = suf.split("\n").first(@@text_padding_lines).join("\n")
         

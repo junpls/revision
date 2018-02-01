@@ -4,7 +4,7 @@ require 'redcarpet'
 class ReviRenderer < Redcarpet::Render::HTML
   def image(link, title, alt_text)
     caption = title.to_s.empty? ? "" : %(<div class="caption">#{title}</div>)
-    %(<div class="center"><img src="#{link}" alt="#{alt_text}"></img>#{caption}</div>)
+    %(<div class="center"><img class="figure" src="#{link}" alt="#{alt_text}"></img>#{caption}</div>)
   end
 
   def block_code(code, language)
@@ -30,7 +30,16 @@ class WelcomeController < ApplicationController
       if c.message.include? '--hide'
         next
       end
-      c.diff_parent.each do |d|
+
+      begin
+        # hack
+        d.diff_parent.each
+        enumerated = c.diff_parent
+      rescue
+        enumerated = [c.diff_parent]
+      end
+      
+      enumerated.each do |d|
         log, patch = d.patch.split(/@@.*@@/)
         if not log.match(/.*\.md/)
           next
@@ -39,6 +48,7 @@ class WelcomeController < ApplicationController
         path = log.match(/.*(b\/.*)\.md/).captures[0]
         title = path.match(/.*\/([^\/]*)/).captures[0]
         title = title.gsub("_"," ")
+                  .gsub("\\","")
 
         folder = path.match(/b\/([^\/]*).*/).captures[0]
         
@@ -67,8 +77,6 @@ class WelcomeController < ApplicationController
         pre = prepare_images(pre, folder)
         new = prepare_images(new, folder)
         suf = prepare_images(suf, folder)
-        
-        puts new
         
         pre_patch = markdown.render(pre)
         new_patch = markdown.render(new)

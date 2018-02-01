@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
     content: "Figure: ";
 }
 
-.center img {        
+.center figure {        
   display:block;
   margin-left:auto;
   margin-right:auto;

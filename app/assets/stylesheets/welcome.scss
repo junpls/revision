@@ -82,6 +82,10 @@ header {
     }
 }
 
+.figure {
+    max-width:90%;
+}
+
 @media only screen and (max-width: 800px) {
     .update .heading {
         margin-left: 0px

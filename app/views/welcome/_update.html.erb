@@ -1,12 +1,7 @@
 <div class="update">
   <div class="heading">
     <div class="tag">
-      <div class="day">
-        <%= update.day %>
-      </div>
-      <div class="month">
-        <%= update.month %>
-      </div>
+      <%= render partial: 'postit', locals: {update: update} %>
     </div>
     <div class="content">
       <div class="description">

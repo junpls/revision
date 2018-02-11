@@ -19,27 +19,52 @@ header {
 
 .update .heading .content {
     padding: 4px 70px;
+    text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.40);
 }
 
 .update .content .title {
     font-weight: bold;
     font-size: x-large;
+    white-space: nowrap;
 }
 
 .update .tag {
-    border-style: solid;
+    position: absolute;
+}
+
+.update .postit {
+    text-align: center;
+    line-height: 25px;
+}
+
+.update .postit .postitPublish {
+    -webkit-box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
+-moz-box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
+box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
     width: 50px;
     height: 50px;
     position: absolute;
-    text-align: center;
+    border-style: solid;
+    background-color: #84d2c7;
+    color: #2e6b39;
+}
+
+.update .postit .postitUpdate {
+    transform: rotate(10deg);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-style: solid;
+    background-color: #fff042;
+    color: #718000;
 }
 
 .update .insertion {
-    border-style: dashed;
+    border: 2px dashed #29270d54;
+    border-radius: 3px;
     padding: 0px 10px;
     margin: 0px -10px;
-    border-color: #484810;
-    background-color: #edff002e;
+    background-color: #f3f1d97a;
 }
 
 .update .footer {

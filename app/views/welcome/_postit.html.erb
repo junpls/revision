@@ -1,0 +1,23 @@
+<div class="postit">
+  <% if update.type == :publish %>
+    <div class="postitPublish">
+      <div class="day">
+        <%= update.day %>
+      </div>
+      <div class="month">
+        <%= update.month %>
+      </div>
+    </div>
+  <% elsif update.type == :update %>
+    <div class="postitPublish"></div>
+    <div class="postitUpdate">
+      <div class="day">
+        <%= update.day %>
+      </div>
+      <div class="month">
+        <%= update.month %>
+      </div>
+    </div>
+  <% end %>
+  
+</div>

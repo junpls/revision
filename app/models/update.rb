@@ -9,6 +9,10 @@ class Update
     @diff = diff
   end
 
+  def type
+    @type
+  end
+
   def day
     @date.mday
   end

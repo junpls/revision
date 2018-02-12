@@ -41,4 +41,8 @@ class Update
   def diff_snippet
     @diff
   end
+
+  def href
+    
+  end
 end

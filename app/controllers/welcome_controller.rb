@@ -60,9 +60,9 @@ class WelcomeController < ApplicationController
           elsif line[0] == '-'
             foundpatch = true
             new += line[1..-1]
-          elsif foundpatch
+          elsif foundpatch and line[0] == ' '
             suf += line[1..-1]
-          else
+          elsif line[0] == ' '
             pre += line[1..-1]
           end
         end

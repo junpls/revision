@@ -41,6 +41,7 @@ header {
     -webkit-box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
 -moz-box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
 box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
+    transform: rotate(-3deg);
     width: 50px;
     height: 50px;
     position: absolute;
@@ -50,7 +51,7 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
 }
 
 .update .postit .postitUpdate {
-    transform: rotate(10deg);
+    transform: rotate(7deg);
     width: 50px;
     height: 50px;
     position: absolute;

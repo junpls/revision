@@ -42,6 +42,24 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Fjalla One Regular";
 }
 
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    text-align: center !important;
+    height: 20px;
+}
+
+td {
+    vertical-align: top;
+}
+
 .center {
     text-align: center;
 }

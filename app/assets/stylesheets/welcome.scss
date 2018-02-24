@@ -7,7 +7,7 @@ header {
 }
 
 .update {
-    margin: 50px 10px 50px 60px;
+    margin: 100px 10px 100px 60px;
     padding: 5px;
 }
 
@@ -98,6 +98,10 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
 .update .bottom_fade {
     background:-webkit-linear-gradient(rgba( 255, 255, 255, 0), rgba(255, 255, 255, 1) );
     background:linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) );
+}
+
+.update .footer a {
+    color: #1b2b2a;
 }
 
 @media only screen and (min-width: 800px) {

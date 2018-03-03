@@ -3,18 +3,18 @@
 
 //= require jquery
 
-const MAX_UPDATE_HEIGHT = 300
+const MAX_UPDATE_HEIGHT = 500
 
 function updateFade() {
   $(".update").each(function() {
     console.log($(this, ".preview"))
-    if ($(this).find(".preview").height() > MAX_UPDATE_HEIGHT) {
-      $(this).find(".top_frame").addClass("top_fade")
+    if ($(this).find(".preview").height() >= MAX_UPDATE_HEIGHT) {
+      // $(this).find(".top_frame").addClass("top_fade")
       $(this).find(".bottom_frame").addClass("bottom_fade")
     }
   })
 }
 
 $(() => {
-  // updateFade()
+  updateFade()
 })

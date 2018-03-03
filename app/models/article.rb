@@ -25,7 +25,7 @@ class Article
   end
 
   def href
-    "/articles/#{path}"
+    "/articles/#{@folder}/#{@filename.gsub('\\','')}"
   end
 
   def path

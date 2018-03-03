@@ -1,6 +1,7 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
 
 .update {
     margin: 0px 10px 200px 60px;
@@ -48,8 +49,6 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
     color: #2e6b39;
 }
 
-$blur: 2px;
-
 .update .postit .postitUpdate {
     transform: rotate(7deg);
     width: 50px;
@@ -61,11 +60,11 @@ $blur: 2px;
 }
 
 .update .pre_insertion, .update .post_insertion {
-  -webkit-filter: blur($blur);
-  -moz-filter: blur($blur);
-  -o-filter: blur($blur);
-  -ms-filter: blur($blur);
-  filter: blur($blur);
+  -webkit-filter: $blur;
+  -moz-filter: $blur;
+  -o-filter: $blur;
+  -ms-filter: $blur;
+  filter: $blur;
   opacity: 0.5;
 }
 
@@ -79,6 +78,7 @@ $blur: 2px;
 }
 */
 .update .footer {
+    margin-top: 10px;
     text-align: right;
 }
 
@@ -118,9 +118,9 @@ $blur: 2px;
     color: #1b2b2a;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: $lock-width) {
     .articles {
-        width: 800px;
+        width: $lock-width;
         margin-left: auto;
         margin-right: auto;
     }
@@ -130,7 +130,7 @@ $blur: 2px;
     max-width: 100%;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: $lock-width) {
     .update .heading {
         margin-left: 0px
     }

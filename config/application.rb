@@ -25,6 +25,8 @@ module Revision
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.assets.paths << "/home/jan/git/blog2"
+    config.x.repo = "./../blog2"
+    
+    config.assets.paths << config.x.repo
   end
 end

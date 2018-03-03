@@ -16,9 +16,9 @@ class MarkdownRenderer
       %(<div><code>#{code}</code></div>)
     end
 
-    def header(text, level)
-      %(#{level == 1 ? "</br>":""}<h#{level}>#{text}</h#{level}>)
-    end
+#    def header(text, level)
+#      %(#{level == 1 ? "</br>":""}<h#{level}>#{text}</h#{level}>)
+#    end
   end
   
   def initialize

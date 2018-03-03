@@ -6,11 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta charset="UTF-8">
   </head>
+
+  <header>
+    <h1><a style="color:#1b2b2a;" href="/">My Blog</a></h1>
+  </header>
 
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+    Subscribe
+  </footer>
 </html>

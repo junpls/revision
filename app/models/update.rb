@@ -1,30 +1,15 @@
-require 'renderers'
-
 class Update
-  attr_accessor :diff
-  @@markdown_renderer = MarkdownRenderer.new
+  attr_accessor :diff, :date, :author, :type, :diff, :article
   @@text_padding_lines = 1
-  
-  def initialize(date, author, type, diff, title)
-    @date = date
-    @author = author
-    @type = type
-    @article = Article.new(title)
-    @diff = diff
-  end
 
   def self.create_from_hunk(hunk, commit)
     log, hunk = hunk.patch.split(/@@.*@@/)
     if not log.match(/.*\.md/)
       return nil
     end
-    
-    path = log.match(/.*(b\/.*)\.md/).captures[0]
-    title = path.match(/.*\/([^\/]*)/).captures[0]
-    title = title.gsub("_"," ")
-              .gsub("\\","")
 
-    folder = path.match(/b\/([^\/]*).*/).captures[0]
+    path = log.match(/.*b\/(.*\.md)/).captures[0]
+    article = Article.create_from_hunk(path)
     
     pre, new, suf = "", "", ""
     foundpatch = false
@@ -48,13 +33,9 @@ class Update
     pre = pre.split("\n").last(@@text_padding_lines).join("\n")
     suf = suf.split("\n").first(@@text_padding_lines).join("\n")
 
-    pre = prepare_images(pre, folder)
-    new = prepare_images(new, folder)
-    suf = prepare_images(suf, folder)
-    
-    pre_patch = render_text(pre)
-    new_patch = render_text(new)
-    suf_patch = render_text(suf)
+    pre_patch = article.render(pre)
+    new_patch = article.render(new)
+    suf_patch = article.render(suf)
 
     if pre == "" && suf == ""
       patch = new_patch
@@ -65,8 +46,15 @@ class Update
               '<div class="post_insertion">' + suf_patch + '</div>'
       patch_type = :update
     end
-
-    return Update.new(commit.committer_date, commit.committer.name, patch_type, patch, title)
+    
+    update = Update.new
+    update.date = commit.committer_date
+    update.author = commit.committer.name
+    update.type = patch_type
+    update.diff = patch
+    update.article = article
+    
+    return update
   end
     
   def type
@@ -101,17 +89,5 @@ class Update
   def diff_snippet
     @diff
   end
-
-  def href
-    "/articles/"+@article.title
-  end
-
-  private
-    def self.prepare_images(patch, folder)
-      patch.gsub(/]\((.*.(?:jpg|jpeg|gif|png))\s"(.*)"\)/, '](/assets/'+folder+'\1 "\2")  '+"\n")
-    end
-
-    def self.render_text(raw)
-      @@markdown_renderer.render(raw)
-    end
+  
 end

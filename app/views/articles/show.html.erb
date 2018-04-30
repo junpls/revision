@@ -1,4 +1,8 @@
-<%= javascript_include_tag 'vendor/d3.v2.min.js', 'vendor/timeknots-min.js' %> 
+<%= javascript_include_tag 'vendor/d3.v2.min.js', 'vendor/timeknots-min.js' %>
+<script>
+ var revisions = JSON.parse('<%= raw @history.to_json %>');
+</script>
+  
 <div class="articles">
 
   <div class="revisions">

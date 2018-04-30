@@ -1,4 +1,10 @@
+<%= javascript_include_tag 'vendor/d3.v2.min.js', 'vendor/timeknots-min.js' %> 
 <div class="articles">
+
+  <div class="revisions">
+    <div id="timeline" style="width:80%;"></div>
+  </div>
+  
   <div class="content">
     <%= raw @article.render %>
   </div>

@@ -41,9 +41,9 @@ class Update
       patch = new_patch
       patch_type = :publish
     else
-      patch = '<div class="pre_insertion">'  + pre_patch + '</div>' +
-              '<div class="insertion">'      + new_patch + '</div>' +
-              '<div class="post_insertion">' + suf_patch + '</div>'
+      patch = '<div class="pre_insertion"><div class="snippet">'  + pre_patch + '</div></div>' +
+              '<div class="insertion"><div class="snippet">'      + new_patch + '</div></div>' +
+              '<div class="post_insertion"><div class="snippet">' + suf_patch + '</div></div>'
       patch_type = :update
     end
     

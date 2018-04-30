@@ -6,6 +6,7 @@
 .update {
     margin: 0px 10px 200px 60px;
     padding: 5px;
+    position: relative;
 }
 
 .update .heading {
@@ -45,8 +46,8 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
     height: 50px;
     position: absolute;
     border-style: solid;
-    background-color: #84d2c7;
-    color: #2e6b39;
+    background-color: #fff;
+    color: #7ea2a0;
 }
 
 .update .postit .postitUpdate {
@@ -55,8 +56,8 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
     height: 50px;
     position: absolute;
     border-style: solid;
-    background-color: #fff042;
-    color: #718000;
+    background-color: #fff;
+    color: #7ea2a0;
 }
 
 .update .pre_insertion, .update .post_insertion {
@@ -66,7 +67,26 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
   -ms-filter: $blur;
   filter: $blur;
   opacity: 0.5;
+  max-height: 25px;
+  overflow: hidden;
+  display: flex;
 }
+
+.update .pre_insertion p, .update .post_insertion p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.update .pre_insertion .snippet {
+  display: inline-block;
+  align-self: flex-end;
+}
+
+.update .post_insertion .snippet {
+  display: inline-block;
+  align-self: flex-start;
+}
+
 
 /*
 .update .insertion {
@@ -85,9 +105,14 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
 .update .preview {
     display: block;
     margin-bottom: -100px;
-    padding: 0px 5px 0px 5px;
+    padding: 10px 10px 10px 10px;
     max-height: 500px;
     overflow: hidden;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
+    -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
+    box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
 }
 
 .update .top_frame {

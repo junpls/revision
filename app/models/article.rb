@@ -1,4 +1,5 @@
 require 'renderers'
+require 'repo'
 
 class Article
   attr_accessor :title, :filename, :folder, :content
@@ -20,6 +21,13 @@ class Article
   def self.create_from_file(path)
     article = Article.create_from_hunk(path)
     article.content = File.read("#{Rails.configuration.x.repo}/#{article.path}")
+    article.content = "<h1>#{article.title}</h1>#{article.content}"
+    return article
+  end
+
+  def self.create_from_commit(path, sha)
+    article = Article.create_from_hunk(path)
+    article.content = Repo.show(sha, path)
     article.content = "<h1>#{article.title}</h1>#{article.content}"
     return article
   end

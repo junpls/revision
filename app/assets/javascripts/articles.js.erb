@@ -2,6 +2,11 @@
 // All this logic will automatically be available in application.js.
 
 $(() => {
+
+  function onTimeknotSelect(knot) {
+    window.location.href = location.pathname+"?sha="+knot.sha;
+  }
+
   const timelineWidth = $('.content').width() * .8;
   TimeKnots.draw("#timeline",
                  revisions, {
@@ -10,7 +15,8 @@ $(() => {
                    width: timelineWidth,
                    height: 100,
                    showLabels: true,
-                   labelFormat: "%B %Y"
+                   labelFormat: "%B %Y",
+                   onKnotClick: onTimeknotSelect
                  });
 });
 

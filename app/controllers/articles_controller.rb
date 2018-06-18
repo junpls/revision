@@ -10,20 +10,22 @@ class ArticlesController < ApplicationController
       return
     end
 
-    # render article
-    @article = Article.create_from_file(path)
+    @sha = params[:sha]
 
+    # render article
+    @article = Article.create_from_commit(path, @sha)
+    
     # assemble history
     @history = Array.new
     Repo.each_commit(path) do |commit|
       @history << {
         :name => commit.message,
-        :date => commit.date.strftime('%Y-%m-%d')
+        :date => commit.date.strftime('%Y-%m-%d'),
+        :sha => commit.sha,
+        :selected => commit.sha == @sha
       }
     end
 
-    @test = 'toast'
-    
   end
 
 end

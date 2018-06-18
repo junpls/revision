@@ -3,7 +3,7 @@
 
 //= require jquery
 
-const MAX_UPDATE_HEIGHT = 500
+const MAX_UPDATE_HEIGHT = 600
 
 function updateFade() {
   $(".update").each(function() {

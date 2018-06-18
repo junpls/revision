@@ -29,7 +29,20 @@ module Repo
     end
   end
 
+  def self.current
+    @git.current
+  end
+
+  def self.get_commit(sha)
+    @git.gcommit(sha)
+  end
+
+  def self.show(sha, file)
+    @git.show(sha, file)
+  end
+
   def self.is_hidden(commit)
     return commit.message.include? @@flag_hidden
   end
+
 end

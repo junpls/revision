@@ -89,5 +89,5 @@ class Update
   def diff_snippet
     @diff
   end
-  
+
 end

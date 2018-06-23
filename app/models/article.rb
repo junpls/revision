@@ -8,7 +8,7 @@ class Article
 
   def self.create_from_hunk(path)
     article = Article.new
- 
+
     article.filename = path.match(/.*\/(.*\.md)/).captures[0]
     article.title = article.filename[0..-4]
                       .gsub("_"," ")
@@ -28,6 +28,14 @@ class Article
   def self.create_from_commit(path, sha)
     article = Article.create_from_hunk(path)
     article.content = Repo.show(sha, path)
+    #puts Repo.get_commit(sha)
+    article.content = "<h1>#{article.title}</h1>#{article.content}"
+    return article
+  end
+
+  def self.create_from_diff(path, sha1, sha2)
+    article = Article.create_from_hunk(path)
+    article.content = Repo.diff_file(path, sha1, sha2)
     article.content = "<h1>#{article.title}</h1>#{article.content}"
     return article
   end

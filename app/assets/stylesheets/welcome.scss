@@ -4,7 +4,7 @@
 @import "variables";
 
 .update {
-    margin: 0px 10px 200px 60px;
+    margin: 0px 10px 20px 60px;
     padding: 5px;
     position: relative;
 }
@@ -39,8 +39,8 @@
 
 .update .postit .postitPublish {
     -webkit-box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
--moz-box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
-box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
+    -moz-box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
+    box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
     transform: rotate(-3deg);
     width: 50px;
     height: 50px;
@@ -60,16 +60,21 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
     color: #7ea2a0;
 }
 
+.update .heading .folder {
+    opacity: 0.5;
+    font-size: medium;
+}
+
 .update .pre_insertion, .update .post_insertion {
-  -webkit-filter: $blur;
-  -moz-filter: $blur;
-  -o-filter: $blur;
-  -ms-filter: $blur;
-  filter: $blur;
-  opacity: 0.5;
-  max-height: 25px;
-  overflow: hidden;
-  display: flex;
+    -webkit-filter: $blur;
+    -moz-filter: $blur;
+    -o-filter: $blur;
+    -ms-filter: $blur;
+    filter: $blur;
+    opacity: 0.5;
+    max-height: 25px;
+    overflow: hidden;
+    display: flex;
 }
 
 .update .pre_insertion p, .update .post_insertion p {
@@ -78,13 +83,13 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
 }
 
 .update .pre_insertion .snippet {
-  display: inline-block;
-  align-self: flex-end;
+    display: inline-block;
+    align-self: flex-end;
 }
 
 .update .post_insertion .snippet {
-  display: inline-block;
-  align-self: flex-start;
+    display: inline-block;
+    align-self: flex-start;
 }
 
 
@@ -106,7 +111,7 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
     display: block;
     margin-bottom: -100px;
     padding: 10px 10px 10px 10px;
-    max-height: 80vh;
+    max-height: 800px;
     overflow: hidden;
     background-color: white;
     border-radius: 5px;
@@ -139,7 +144,7 @@ box-shadow: 3px 3px 10px -3px rgba(0,0,0,0.51);
     background:linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
 }
 
-.update .footer a {
+.update .footer a, .update .title a {
     color: #1b2b2a;
 }
 

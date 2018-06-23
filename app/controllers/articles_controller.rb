@@ -12,9 +12,9 @@ class ArticlesController < ApplicationController
 
     @sha = params[:sha]
 
-    # render article
-    @article = Article.create_from_commit(path, @sha)
-    
+    pred_sha = ''
+    prev_sha = ''
+
     # assemble history
     @history = Array.new
     Repo.each_commit(path) do |commit|
@@ -24,8 +24,15 @@ class ArticlesController < ApplicationController
         :sha => commit.sha,
         :selected => commit.sha == @sha
       }
+
+      if prev_sha == @sha
+        pred_sha = commit.sha
+      end
+      prev_sha = commit.sha
     end
 
+    # render article
+    @article = Article.create_from_commit(path, @sha)
   end
 
 end

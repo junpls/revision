@@ -41,6 +41,10 @@ module Repo
     @git.show(sha, file)
   end
 
+  def self.diff_file(file, sha1, sha2)
+    @git.diff(sha1, sha2).path(file)
+  end
+
   def self.is_hidden(commit)
     return commit.message.include? @@flag_hidden
   end

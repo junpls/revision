@@ -4,11 +4,11 @@
       <%= render partial: 'postit', locals: {update: update} %>
     </div>
     <div class="content">
-      <div class="description">
+      <div class="description"> 
         <b><%= update.author %></b> <%= update.type_as_string %>
       </div>
       <div class="title">
-        <%= update.article.title %>
+        <span class="folder"><%= update.article.folder %> / </span><a href="<%= update.article.href %>"><%= update.article.title %></a>
       </div>
     </div>
   </div>

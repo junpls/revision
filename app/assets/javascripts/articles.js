@@ -3,6 +3,8 @@
 
 $(() => {
 
+  if (typeof revisions === 'undefined') return;
+
   function onTimeknotSelect(knot) {
     window.location.href = location.pathname+"?sha="+knot.sha;
   }

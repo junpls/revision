@@ -51,7 +51,7 @@ class Update
     update.date = commit.committer_date
     update.author = commit.committer.name
     update.type = patch_type
-    update.diff = patch
+    update.diff = '<div class="insertionWrapper">' + patch + '</div>'
     update.article = article
     
     return update

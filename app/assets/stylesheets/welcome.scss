@@ -111,14 +111,22 @@
     display: block;
     margin-bottom: -100px;
     padding: 10px 10px 10px 10px;
-    max-height: 800px;
     overflow: hidden;
     background-color: white;
     border-radius: 5px;
     -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
     -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
     box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
+//    max-height: 10000px;
+    transition: max-height 1s ease-in-out;
 }
+
+.footerLink:not(.expandedPreview) { visibility: hidden; }
+.footerExpanded.expandedPreview { visibility: hidden; }
+
+//.update .preview:not(.expandedPreview) {
+//    max-height: 70vh;
+//}
 
 .update .top_frame {
     position:relative;

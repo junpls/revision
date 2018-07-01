@@ -29,14 +29,14 @@ class Article
     article = Article.create_from_hunk(path)
     article.content = Repo.show(sha, path)
     #puts Repo.get_commit(sha)
-    article.content = "<h1>#{article.title}</h1>#{article.content}"
+    article.content = "<h1>#{article.title}</h1>\n#{article.content}"
     return article
   end
 
   def self.create_from_diff(path, sha1, sha2)
     article = Article.create_from_hunk(path)
     article.content = Repo.diff_file(path, sha1, sha2)
-    article.content = "<h1>#{article.title}</h1>#{article.content}"
+    article.content = "<h1>#{article.title}</h1>\n#{article.content}"
     return article
   end
 
@@ -58,10 +58,15 @@ class Article
   end
   
   def prepare_images(patch)
-    patch.gsub(/]\((.*.(?:jpg|jpeg|gif|png))\s"(.*)"\)/, '](/assets/'+@folder+'\1 "\2")  '+"\n")
+    patch.gsub(/]\((.*.(?:jpg|jpeg|gif|png))\s"(.*)"\)/, 
+      "](#{Rails.configuration.relative_url_root}/assets/#{@folder}\\1  \"\\2\")  "+"\n")
   end
 
   def render_text(raw)
     @@markdown_renderer.render(raw)
+  end
+
+  def is_ignored?
+    Repo.is_ignored?(path)
   end
 end

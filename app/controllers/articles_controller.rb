@@ -32,7 +32,16 @@ class ArticlesController < ApplicationController
     end
 
     # render article
-    @article = Article.create_from_commit(path, @sha)
+    begin
+      article = Article.create_from_commit(path, @sha)
+    rescue
+      not_found
+    end
+    if !article.is_ignored?
+      @article = article
+    else
+      not_found
+    end
   end
 
 end

@@ -7,7 +7,7 @@ module Repo
 
   def self.each_commit(path='')
     @git.log.path(path).each do |c|
-      if not is_hidden c
+      if not is_hidden? c
         yield c
       end
     end
@@ -45,8 +45,17 @@ module Repo
     @git.diff(sha1, sha2).path(file)
   end
 
-  def self.is_hidden(commit)
+  def self.is_hidden?(commit)
     return commit.message.include? @@flag_hidden
+  end
+
+  def self.is_ignored?(namepath)
+    Rails.configuration.x.settings["ignore"].each do |ignored|
+      if namepath.include? ignored
+        return true
+      end
+    end
+    return false
   end
 
 end

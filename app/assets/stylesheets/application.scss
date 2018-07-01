@@ -34,6 +34,7 @@ body {
     font-family: "Average Regular";
     color: #1b2b2a;
     background-color: hsla(176, 23%, 98%, 1);
+    overflow-x: hidden;
 }
 
 p {
@@ -91,9 +92,9 @@ header {
     font-size: 0.7em;
 }
 
-.caption:before {
-    content: "Figure: ";
-}
+//.caption:before {
+//    content: "Figure: ";
+///}
 
 .center figure {
     display:block;

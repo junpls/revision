@@ -3,35 +3,30 @@
 
 //= require jquery
 
-const MAX_COLLAPSED_HEIGHT = $(window).height() * 0.7;
+const MAX_COLLAPSED_HEIGHT = Math.floor($(window).height() * 0.7)
 
 function expandPreview(e) {
   let parent = $(e).closest(".update")
   let realHeight = parent.find(".insertionWrapper").outerHeight()
   parent.find(".preview").css({"max-height": realHeight+"px"})
-  setExpandedMode(parent);
+  setExpandedMode(parent)
 }
 
 function setExpandedMode(e) {
-  e.find(".preview").addClass("expandedPreview")
-  e.find(".footerExpanded").addClass("expandedPreview")
-  e.find(".footerLink").addClass("expandedPreview")
-  e.find(".bottom_frame").removeClass("bottom_fade")
+  e.addClass("expandedPreview")
 }
 
 function updateFade() {
   $(".update").each(function() {
     let realHeight = $(this).find(".insertionWrapper").outerHeight()
-      $(this).find(".preview").css({"max-height": MAX_COLLAPSED_HEIGHT+"px"})
-    if (realHeight >= MAX_COLLAPSED_HEIGHT) {
-      // $(this).find(".top_frame").addClass("top_fade")
-      $(this).find(".bottom_frame").addClass("bottom_fade")
-    } else {
+    $(this).find(".preview").css({"max-height": MAX_COLLAPSED_HEIGHT+"px"})
+    console.log(realHeight, MAX_COLLAPSED_HEIGHT);
+    if (realHeight < MAX_COLLAPSED_HEIGHT) {
       setExpandedMode($(this))
     }
   })
 }
 
-$(() => {
+window.addEventListener('load', function(){
   updateFade()
-})
+});

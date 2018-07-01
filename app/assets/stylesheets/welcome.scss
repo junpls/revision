@@ -117,12 +117,11 @@
     -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
     -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
     box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
-//    max-height: 10000px;
     transition: max-height 1s ease-in-out;
 }
 
-.footerLink:not(.expandedPreview) { visibility: hidden; }
-.footerExpanded.expandedPreview { visibility: hidden; }
+.update:not(.expandedPreview) .footerLink { visibility: hidden; }
+.expandedPreview .footerCollapsed { visibility: hidden; }
 
 //.update .preview:not(.expandedPreview) {
 //    max-height: 70vh;
@@ -147,9 +146,9 @@
     width:100%;
 }
 
-.update .bottom_fade {
-    background:-webkit-linear-gradient(rgba( 255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
-    background:linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
+.update:not(.expandedPreview) .bottom_frame {
+    background: -webkit-linear-gradient(rgba( 255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
+    background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
 }
 
 .update .footer a, .update .title a {

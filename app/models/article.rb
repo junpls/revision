@@ -41,7 +41,7 @@ class Article
   end
 
   def href
-    "/articles/#{@folder}/#{@filename.gsub('\\','')}"
+    "#{Rails.configuration.relative_url_root}/articles/#{@folder}/#{@filename.gsub('\\','')}"
   end
 
   def path

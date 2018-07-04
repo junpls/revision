@@ -5,16 +5,18 @@ module Repo
 
   @git = Git.open(Rails.configuration.x.repo)
 
-  def self.each_commit(path='')
-    @git.log.path(path).each do |c|
-      if not is_hidden? c
+  def self.each_commit(path='', offset=0, count=10)
+    num = count
+    @git.log.skip(offset).path(path).each do |c|
+      if (not is_hidden? c) && num > 0
         yield c
+        num = num - 1
       end
     end
   end
   
-  def self.each_hunk
-    each_commit do |c|
+  def self.each_hunk(path='', offset=0, count=10)
+    each_commit(path, offset, count) do |c|
       # hack
       begin
         d.diff_parent.each

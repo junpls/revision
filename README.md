@@ -30,18 +30,18 @@ You'll need:
    1. Hosting the repo remotely and cloning.
 1. Your repository shoud have a structure like this:
    ```
-   blog (project root)
+   blog/ (project root)
    |   revision.yml
    |
-   └── category1
+   └── category1/
    |   |   Hello_World.md
    |   |   My_Other_Article.md
    |   |
-   |   └── media
+   |   └── media/
    |       |
    |       |   helloworld.jpg
    |
-   └── category2
+   └── category2/
    |   ...
    ```
 1. Populate [revision.yml](#Configuration)
@@ -65,15 +65,18 @@ Remember to restart Revision after editing this file.
 
 ## Authoring articles
 * Revision articles are written in [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), but you can also use inline html. I would suggest to use markdown as much as possible though.  
+* Filename equals Title (underscores replaced by spaces), so choose them carefully.
 * Embedding images that reside within the blog repository should be done like so:
    ```markdown
    ### Hello_World.md
 
    [Alternative text](/media/helloworld.jpg "Caption")
    ```
-* Revision will automatically resolve such paths relative to the article.  
-* Get familiar with git's `--amend` option. You will use it frequently.  
+   Revision will automatically resolve such paths relative to the article.  
 * Use meaningful commit messages, as they will appear in the timeline of your article.
+* Hints: 
+    * Get familiar with git's `--amend` option. You will use it frequently.
+    * Start a new line as often as possible, so that git can make precise diffs. You can do that safely, as markdown doesn't render line breaks a without double space anyway. 
 
 ### Commands
 You can place these commands anywhere in the commit message:

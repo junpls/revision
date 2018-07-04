@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Revision</title>
+    <title><%= Rails.configuration.x.settings["title"] %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +11,7 @@
   </head>
 
   <header>
-    <h1><a style="color:#1b2b2a;" href="/"><%= Rails.configuration.x.settings["title"] %></a></h1>
+    <h1><a style="color:#1b2b2a;" href="<%= Rails.configuration.relative_url_root.presence || "/" %>"><%= Rails.configuration.x.settings["title"] %></a></h1>
   </header>
 
   <body>

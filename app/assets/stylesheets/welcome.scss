@@ -4,7 +4,7 @@
 @import "variables";
 
 .update {
-    margin: 0px 10px 20px 60px;
+    margin: 0px 0px 20px 60px;
     padding: 5px;
     position: relative;
 }
@@ -144,11 +144,15 @@
     bottom:0px;
     height:100px;
     width:100%;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    background: -webkit-linear-gradient(rgba( 255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
+    background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
+    border-radius: 5px;
 }
 
 .update:not(.expandedPreview) .bottom_frame {
-    background: -webkit-linear-gradient(rgba( 255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
-    background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
+    opacity: 1;
 }
 
 .update .footer a, .update .title a {
@@ -156,7 +160,7 @@
 }
 
 @media only screen and (min-width: $lock-width) {
-    .articles {
+    .updates {
         width: $lock-width;
         margin-left: auto;
         margin-right: auto;
@@ -173,6 +177,10 @@
     }
 
     .update {
-        margin-left: 10px;
+        margin-left: 0px;
+    }
+
+    .update .preview {
+        padding: 5px;
     }
 }

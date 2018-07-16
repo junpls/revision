@@ -16,9 +16,28 @@
 
   <body>
     <%= yield %>
-  </body>
 
-  <footer>
-    Subscribe
-  </footer>
+    <div class="footer">
+      <div class="subscribe center">
+        <form action="<%= Rails.configuration.x.mail_sub_endpoint %>" method="post">
+          <input type="email" name="EMAIL" placeholder="Email Address">
+          <input type="submit" value="Subscribe to Email Updates">
+        </form> 
+        <span style="font-size:small;">Your email will be used to send you blog updates. You can unsubscribe at any time using the link in the emails. For more details, review the privacy policy.</span>
+      </div>
+      <div class="legal">
+        <div class="legal-item">
+          <b>Blog</b></br>
+          <a href="<%= Rails.configuration.relative_url_root.presence || "/" %>">Home</a></br>
+          <a>Archive</a></br>
+          <a href="<%= (Rails.configuration.relative_url_root.presence || "/") + "legal" %>">Legal</a></br>
+        </div>
+        <div class="legal-item">
+          <b>Revision</b></br>
+          <a>About</a></br>
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/junpls/revision">GitHub</a></br>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -24,10 +24,15 @@ module Revision
 
 
     # Path to blog repository
-    config.x.repo = "./../blog2"
+    config.x.repo = ""
 
     # Enable running in sub-dir for assets
     config.relative_url_root = ""
+
+    # The form action URL of the mailing list provider.
+    # Current implementation is geared towards mailchimp. 
+    # See app/views/layouts/application.html.erb 
+    config.x.mail_sub_endpoint = ""
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

@@ -17,10 +17,10 @@ class ArticlesController < ApplicationController
 
     # assemble history
     @history = Array.new
-    Repo.each_commit(path) do |commit|
+    Repo.each_commit(path, 0, -1) do |commit|
       @history << {
         :name => commit.message,
-        :date => commit.date.strftime('%Y-%m-%d'),
+        :date => commit.date.strftime('%Y-%m-%d %H:%M:%S'),
         :sha => commit.sha,
         :selected => commit.sha == @sha
       }

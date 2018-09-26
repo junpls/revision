@@ -9,7 +9,7 @@ $(() => {
     window.location.href = location.pathname+"?sha="+knot.sha;
   }
 
-  const timelineWidth = $('.content').width() * .8;
+  const timelineWidth = $(window).width() * .8;
   TimeKnots.draw("#timeline",
                  revisions, {
                    dateFormat: "%d %B",

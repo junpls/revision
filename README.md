@@ -38,7 +38,6 @@ You'll need:
    |   |   My_Other_Article.md
    |   |
    |   └── media/
-   |       |
    |       |   helloworld.jpg
    |
    └── category2/

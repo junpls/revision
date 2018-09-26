@@ -4,12 +4,9 @@
   var sha = '<%= @sha %>';
 </script>
   
+<div id="timeline" style="width:80%;"></div>
 <div class="articles">
-
-  <div class="revisions">
-    <div id="timeline" style="width:80%;"></div>
-  </div>
-  
+  <div class="revisions"></div>  
   <div class="content">
     <%= raw @article.render %>
   </div>

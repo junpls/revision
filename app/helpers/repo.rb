@@ -8,7 +8,7 @@ module Repo
   def self.each_commit(path='', offset=0, count=10)
     num = count
     @git.log.skip(offset).path(path).each do |c|
-      if (not is_hidden? c) && num > 0
+      if (not is_hidden? c) && num != 0
         yield c
         num = num - 1
       end

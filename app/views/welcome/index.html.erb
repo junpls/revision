@@ -2,5 +2,5 @@
   <%= render partial: 'update', collection: @updates %>
 </div>
 <div class="nextpage center">
-  <a href="?page=<%= @page + 1 %>">Next page (<%= @page + 1 %>)</a>
+  <a href="?page=<%= @page + 1 %>&start=<%= @last %>">Next page (<%= @page + 1 %>)</a>
 </div>

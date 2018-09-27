@@ -69,6 +69,10 @@ class Update
     @date.strftime('%b')
   end
 
+  def date_as_string
+    @date.strftime('%Y-%m-%d %H:%M:%S')
+  end
+
   def author
     @author.split(" ")[0]
   end

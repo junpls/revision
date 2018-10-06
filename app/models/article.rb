@@ -58,7 +58,7 @@ class Article
   end
   
   def prepare_images(patch)
-    patch.gsub(/]\((.*.(?:jpg|jpeg|gif|png))\s"(.*)"\)/, 
+    patch.gsub(/]\((.*.(?:jpg|jpeg|gif|png|svg))\s"(.*)"\)/,
       "](#{Rails.configuration.relative_url_root}/assets/#{@folder}\\1  \"\\2\")  "+"\n")
   end
 

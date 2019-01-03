@@ -27,6 +27,8 @@ function updateFade() {
   })
 }
 
-window.addEventListener('load', function(){
+function onLoad() {
   updateFade()
-});
+}
+
+$(document).on('turbolinks:load', onLoad);

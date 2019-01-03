@@ -10,11 +10,13 @@
     <meta charset="UTF-8">
   </head>
 
-  <header>
-    <h1><a style="color:#1b2b2a;" href="<%= Rails.configuration.relative_url_root.presence || "/" %>"><%= Rails.configuration.x.settings["title"] %></a></h1>
-  </header>
-
   <body>
+    <div class="header">
+      <div class="title">
+        <a style="color:#1b2b2a;" href="<%= Rails.configuration.relative_url_root.presence || "/" %>"><%= Rails.configuration.x.settings["title"] %></a>
+      </div>
+    </div>
+    
     <%= yield %>
 
     <div class="footer">

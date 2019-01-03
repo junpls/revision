@@ -13,17 +13,15 @@
     height: 55px;
     margin-left: -70px;
     margin-bottom: 20px;
-    font-family: "Fjalla One Regular";
 }
 
 .update .heading .content {
     padding: 4px 70px;
-    text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.40);
+    line-height: 25px;
 }
 
 .update .content .title {
     font-weight: bold;
-    font-size: 1.3em;
     white-space: nowrap;
 }
 
@@ -34,7 +32,7 @@
 
 .update .postit {
     text-align: center;
-    line-height: 25px;
+    line-height: 20px;
 }
 
 .update .postit .postitPublish {
@@ -47,7 +45,7 @@
     position: absolute;
     border-style: solid;
     background-color: #fff;
-    color: #7ea2a0;
+    color: #4c545e;
 }
 
 .update .postit .postitUpdate {
@@ -57,7 +55,12 @@
     position: absolute;
     border-style: solid;
     background-color: #fff;
-    color: #7ea2a0;
+    color: #6e7282;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
 }
 
 .update .heading .folder {
@@ -112,11 +115,15 @@
     margin-bottom: -100px;
     padding: 10px 10px 10px 10px;
     overflow: hidden;
+
+    border:1px solid #f2f2f2;
+    border-radius: 20px;
     background-color: white;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
-    -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
-    box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.26);
+
+    -webkit-box-shadow: 0 10px 46px 0px #d3dbe099;
+    -moz-box-shadow: 0 10px 46px 0px #d3dbe099;
+    box-shadow: 0 10px 46px 0px #d3dbe099;
+
     transition: max-height 1s ease-in-out;
 }
 
@@ -148,7 +155,7 @@
     opacity: 0;
     background: -webkit-linear-gradient(rgba( 255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
     background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) );
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .update:not(.expandedPreview) .bottom_frame {

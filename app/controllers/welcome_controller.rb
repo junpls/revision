@@ -16,7 +16,7 @@ class WelcomeController < ApplicationController
     end
 
     @last = Time.now
-    Repo.each_hunk('', @offset, @@updates_per_page) do |hunk, c|
+    Repo.each_hunk('.', @offset, @@updates_per_page) do |hunk, c|
       update = Update.create_from_hunk(hunk, c)
       if update && !update.article.is_ignored?
         @updates << update

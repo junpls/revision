@@ -24,7 +24,7 @@ module Revision
 
 
     # Path to blog repository
-    config.x.repo = ""
+    config.x.repo = "../blog"
 
     # Enable running in sub-dir for assets
     config.relative_url_root = ""
